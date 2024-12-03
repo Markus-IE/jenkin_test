@@ -1,0 +1,7 @@
+configparser
+pyodbc
+smtplib
+re
+logging
+email
+datetime
