@@ -233,17 +233,22 @@ class GenerateEM:
     latest_envidas = ''
     last_rolling = ''
     try:
-        object = configparser.RawConfigParser()
-        server_properties_path = os.path.join(os.getcwd(), "server.properties")
-        object.read(server_properties_path)
+        # object = configparser.RawConfigParser()
         # object.read(f"server.properties")
-        general = object["Server"]
+        # general = object["Server"]
+        # main_server = {
+        #     'driver': 'ODBC Driver 17 for SQL Server',
+        #     'server': general["server"],
+        #     'database': general["database"],
+        #     'username': general["username"],
+        #     'password': general["password"]
+        # }
         main_server = {
             'driver': 'ODBC Driver 17 for SQL Server',
-            'server': general["server"],
-            'database': general["database"],
-            'username': general["username"],
-            'password': general["password"]
+            'server': os.getenv('DB_HOST'),
+            'database': os.getenv('DB_DATABASE'),
+            'username': os.getenv('DB_USER'),
+            'password': os.getenv('DB_PASSWORD')
         }
 
         regional_details_query = f"SELECT host_name, user_name, password, database_name, table_name FROM em_regional_details"
