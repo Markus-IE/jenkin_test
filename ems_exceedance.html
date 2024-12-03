@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+        <div style="display: flex; align-items: center; justify-content: left;">
+            <div class="logo">
+                <img src="cid:logo_image" style="width: 400px; height: 100px;">
+            </div>
+        </div>
+
+        <div align="left">
+            <h1 style="color : red;">{{stack}} EMISSION WARNING!</h1>
+            <h4>Continuous high emission rate may result in an SCO.</h4>
+            <table style="border:1px solid black; border-collapse:collapse">
+                <tr>
+                    <th style="border:1px solid black; border-collapse:collapse; padding: 15px;"><b>Parameter</b></th>
+                    <th style="border:1px solid black; border-collapse:collapse; padding: 15px;"><b>Date</b></th>
+                    <th style="border:1px solid black; border-collapse:collapse; padding: 15px;"><b>Value</b></th>
+                    <th style="border:1px solid black; border-collapse:collapse; padding: 15px;"><b>Limit</b></th>
+                </tr>
+
+                {{data}}
+            </table>
+            <p>{{body}}</p>
+        </div>
+    </body>
+</html>
+
+
