@@ -51,7 +51,7 @@ def load_html_template(logging_server, job_id, file_path):
 def send_email(logging_server, job_id, context, email, regional=None):
     if not regional:
         try:
-            html_template = load_html_template(logging_server, job_id, 'ems_exceedance.html')
+            html_template = load_html_template(logging_server, job_id, os.path.join(os.getcwd(), "ems_exceedance.html"))
             html_content = html_template.replace('{{logo}}', 'cid:logo_image')
             html_content = html_content.replace('{{stack}}', context.get('stack'))
             html_content = html_content.replace('{{body}}', email.get('body'))
@@ -72,7 +72,7 @@ def send_email(logging_server, job_id, context, email, regional=None):
 
             message.attach(MIMEText(html_content, "html"))
 
-            with open('logo_ems.png', 'rb') as logo_file:
+            with open(os.path.join(os.getcwd(), "logo_ems.png"), 'rb') as logo_file:
                 logo = MIMEImage(logo_file.read())
                 logo.add_header('Content-ID', '<logo_image>')
                 message.attach(logo)
@@ -88,7 +88,7 @@ def send_email(logging_server, job_id, context, email, regional=None):
             logging.error(f"Exceedance Email : {e}")
     else:
         try:
-            html_template = load_html_template(logging_server, job_id, 'ems_last_transmission.html')
+            html_template = load_html_template(logging_server, job_id, os.path.join(os.getcwd(), "ems_last_transmission.html"))
             html_content = html_template.replace('{{logo}}', 'cid:logo_image')
             html_content = html_content.replace('{{hours}}', str(context.get('last_date_regional').strftime("%A, %d %B, %Y %I:%M %p")))
 
@@ -107,7 +107,7 @@ def send_email(logging_server, job_id, context, email, regional=None):
 
             message.attach(MIMEText(html_content, "html"))
 
-            with open('logo_ems.png', 'rb') as logo_file:
+            with open(os.path.join(os.getcwd(), "logo_ems.png"), 'rb') as logo_file:
                 logo = MIMEImage(logo_file.read())
                 logo.add_header('Content-ID', '<logo_image>')
                 message.attach(logo)
