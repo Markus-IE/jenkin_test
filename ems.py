@@ -230,8 +230,8 @@ def check_regional_transmission(details, latest_envidas, logging_server, email):
 
 
 class GenerateEM:
-        latest_envidas = ''
-        last_rolling = ''
+    latest_envidas = ''
+    last_rolling = ''
     try:
         object = configparser.RawConfigParser()
         server_properties_path = os.path.join(os.getcwd(), "server.properties")
