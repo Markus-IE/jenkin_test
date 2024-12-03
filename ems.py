@@ -234,7 +234,7 @@ class GenerateEM:
         last_rolling = ''
     # try:
         object = configparser.RawConfigParser()
-        object.read(f"{os.path.dirname(sys.argv[0])}/server.properties")
+        object.read(f"server.properties")
         general = object["Server"]
         main_server = {
             'driver': 'ODBC Driver 17 for SQL Server',
