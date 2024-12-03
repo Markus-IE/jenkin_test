@@ -1,5 +1,4 @@
 configparser
 pyodbc
 logging
-email
 datetime
