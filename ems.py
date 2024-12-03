@@ -232,7 +232,7 @@ def check_regional_transmission(details, latest_envidas, logging_server, email):
 class GenerateEM:
         latest_envidas = ''
         last_rolling = ''
-    # try:
+    try:
         object = configparser.RawConfigParser()
         server_properties_path = os.path.join(os.getcwd(), "server.properties")
         object.read(server_properties_path)
@@ -352,9 +352,10 @@ class GenerateEM:
                 }
                 check_regional_transmission(details, latest_envidas, main_server, email)
 
-    # except TypeError:
-    #     logging.error(f"NoneType Check Last Envidas: {latest_envidas}")
-    #     logging.error(f"NoneType Check Last Rolling: {last_rolling}")
-    # except Exception as e:
-    #     # print("Error in executing Emission Monitoring: ", e)
-    #     logging.error(f"Main: {e}")
+    except TypeError:
+        logging.error(f"NoneType Check Last Envidas: {latest_envidas}")
+        logging.error(f"NoneType Check Last Rolling: {last_rolling}")
+    except Exception as e:
+        # print("Error in executing Emission Monitoring: ", e)
+        logging.error(f"Main: {e}")
+        sys.exit(1)
